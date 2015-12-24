@@ -24,7 +24,7 @@ public class Launch extends AppCompatActivity {
 
         //second way
             //String uri = "https://www.facebook.com/timmy.hartanto";
-        String uri = "fb://facewebmodal/f?href=michael.chua.1428";
+        String uri = "fb://facewebmodal/f?href=https://www.facebook.com/xxxxx"; // put the profile id here
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 
         startActivity(intent);
