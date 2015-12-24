@@ -1,7 +1,9 @@
 package com.example.proto.launcher;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,16 +18,42 @@ public class Launch extends AppCompatActivity {
 
 
     public void launchApp(View v){
+        //first way
+//        Intent facebookIntent = getOpenFacebookIntent(this);
+//        startActivity(facebookIntent);
+
+        //second way
+            //String uri = "https://www.facebook.com/timmy.hartanto";
+        String uri = "fb://facewebmodal/f?href=michael.chua.1428";
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+
+        startActivity(intent);
+
+        //third way
+//        try {
+//            PackageManager manager = this.getPackageManager();
+//            Intent i = manager.getLaunchIntentForPackage("com.facebook.katana");
+//
+//            if (i == null) {
+//                //throw new PackageManager.NameNotFoundException();
+//            }
+//            i.addCategory(Intent.CATEGORY_LAUNCHER);
+//            this.startActivity(i);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public static Intent getOpenFacebookIntent(Context context) {
+
         try {
-            PackageManager manager = this.getPackageManager();
-            Intent i = manager.getLaunchIntentForPackage("com.facebook.katana");
-            if (i == null) {
-                //throw new PackageManager.NameNotFoundException();
-            }
-            i.addCategory(Intent.CATEGORY_LAUNCHER);
-            this.startActivity(i);
+            context.getPackageManager()
+                    .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
+            return new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("fb://profile/254175194653125")); //Trys to make intent with FB's URI
         } catch (Exception e) {
-            e.printStackTrace();
+            return new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.facebook.com/timmy.hartanto")); //catches and opens a url to the desired page
         }
     }
 }
