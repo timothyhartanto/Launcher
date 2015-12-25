@@ -23,8 +23,8 @@ public class Launch extends AppCompatActivity {
 //        startActivity(facebookIntent);
 
         //second way
-            //String uri = "https://www.facebook.com/timmy.hartanto";
-        String uri = "fb://facewebmodal/f?href=https://www.facebook.com/xxxxx"; // put the profile id here
+            //String uri = "https://www.facebook.com/<user_id>";
+        String uri = "fb://facewebmodal/f?href=https://www.facebook.com/<user_id>"; // put the profile id here
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 
         startActivity(intent);
@@ -50,10 +50,10 @@ public class Launch extends AppCompatActivity {
             context.getPackageManager()
                     .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
             return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("fb://profile/254175194653125")); //Trys to make intent with FB's URI
+                    Uri.parse("fb://profile/<user_id>")); //Trys to make intent with FB's URI
         } catch (Exception e) {
             return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.facebook.com/timmy.hartanto")); //catches and opens a url to the desired page
+                    Uri.parse("https://www.facebook.com/<user_id>")); //catches and opens a url to the desired page
         }
     }
 }
