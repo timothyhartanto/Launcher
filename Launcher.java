@@ -56,4 +56,19 @@ public class Launch extends AppCompatActivity {
                     Uri.parse("https://www.facebook.com/<user_id>")); //catches and opens a url to the desired page
         }
     }
+    
+    
+    /* make the API call */
+//    new GraphRequest(
+//            AccessToken.getCurrentAccessToken(),
+//    "/me/friendrequests",
+//            null,
+//    HttpMethod.GET,
+//            new GraphRequest.Callback() {
+//        public void onCompleted(GraphResponse response) {
+//            /* handle the result */
+//        }
+//    }
+//    ).executeAsync();
+
 }
