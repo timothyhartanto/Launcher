@@ -62,10 +62,10 @@ public class Launch extends Activity {
             context.getPackageManager()
                     .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
             return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("fb://profile/o")); //Trys to make intent with FB's URI /254175194653125
+                    Uri.parse("fb://profile/xxxxx")); //Trys to make intent with FB's URI /254175194653125
         } catch (Exception e) {
             return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("fb://profile/"));
+                    Uri.parse("fb://profile/xxxx")); // note: the xxx is the facebook name(link)
 //            return new Intent(Intent.ACTION_VIEW,
 //                    Uri.parse("https://www.facebook.com/")); //catches and opens a url to the desired page
         }
