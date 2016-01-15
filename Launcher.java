@@ -35,11 +35,11 @@ public class Launch extends Activity {
         startActivity(facebookIntent);
 
         //second way
-            //String uri = "https://www.facebook.com/timmy.hartanto";
-//        String uri = "fb://facewebmodal/f?href=https://www.facebook.com/"; // put the profile id here
-//        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-//
-//        startActivity(intent);
+            String uri = "https://www.facebook.com/timmy.hartanto";
+        String uri = "fb://facewebmodal/f?href=https://www.facebook.com/"; // put the profile id here
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+
+        startActivity(intent);
 
         //third way
 //        try {
