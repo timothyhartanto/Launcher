@@ -28,6 +28,18 @@ public class Launch extends Activity {
                     Uri.parse("https://twitter.com/#!/")));
         }
     }
+    
+    public void launchAppInstagram(View v){
+        
+    }try {
+            Intent intent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse());
+            startActivity(intent);
+
+        }catch (Exception e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse()));
+        }
 
     public void launchApp(View v){
         //first way
