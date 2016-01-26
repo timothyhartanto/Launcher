@@ -16,6 +16,41 @@ public class Launch extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcch);
     }
+    
+     public View onCreateView(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_launcch, container, false);
+
+        loginButton = (LoginButton) view.findViewById(R.id.login_button);
+        loginButton.setReadPermissions("user_friends");
+        // If using in a fragment
+        //loginButton.setFragment(this);
+        // Other app specific specialization
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+                return;
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+                return;
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+                return;
+            }
+        });
+        return view;
+    }
 
     public void launchAppTwitter(View v){
         try {
