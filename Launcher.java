@@ -85,14 +85,14 @@ public class Launch extends FragmentActivity {
     public void launchAppTwitter(View v){
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://twitter.com/intent/follow?screen_name=NASA"));
+                    Uri.parse("https://twitter.com/intent/follow?screen_name=USERNAMEHERE"));
                     //Uri.parse("twitter://user?screen_name=NASA"));
                     //Uri.parse("twitter://user?screen_name=timothyhendrik"));
             startActivity(intent);
 
         }catch (Exception e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://twitter.com/intent/follow/NASA")));
+                    Uri.parse("https://twitter.com/intent/follow/USERNAMEHERE")));
                     //Uri.parse("https://twitter.com/#!/timothyhendrik")));
         }
     }
