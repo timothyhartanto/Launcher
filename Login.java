@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proto.launcher.fragment.MultiFragment;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -34,7 +36,7 @@ public class Login extends Activity implements View.OnClickListener {
 
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
-    private static final String LOGIN_URL = "http://192.168.13.1:8080/webservice_old/login.php";
+    private static final String LOGIN_URL = "http://192.168.131.1:8080/webservice/login.php";
 
     //JSON element ids from repsonse of php script:
     private static final String TAG_SUCCESS = "success";
@@ -44,6 +46,7 @@ public class Login extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.login);
 
         //setup input fields
@@ -67,7 +70,12 @@ public class Login extends Activity implements View.OnClickListener {
                 String username = user.getText().toString();
                 String password = pass.getText().toString();
 
-                new AttemptLogin().execute(username, password);
+                if(username.contentEquals("") || password.contentEquals("")){
+                    Toast.makeText(Login.this, "Please fill all the forms!", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    new AttemptLogin().execute(username, password);
+                }
                 break;
             case R.id.register:
                 Intent i = new Intent(this, Register.class);
@@ -128,15 +136,15 @@ public class Login extends Activity implements View.OnClickListener {
                 if (success == 1) {
                     Log.d("Login Successful!", json.toString());
                     // save user data
-                    SharedPreferences sp = PreferenceManager
-                            .getDefaultSharedPreferences(Login.this);
-                    SharedPreferences.Editor edit = sp.edit();
-                    edit.putString("username", username);
+//                    SharedPreferences sp = PreferenceManager
+//                            .getDefaultSharedPreferences(Login.this);
+                    SharedPreferences.Editor edit = getSharedPreferences("loginFile", MODE_PRIVATE).edit();
+                    edit.putBoolean("loggedIn", true);
                     edit.commit();
 
-                    Intent i = new Intent(Login.this, Launch.class);
+                    //Intent i = new Intent(Login.this, MultiFragment.class);
                     finish();
-                    startActivity(i);
+                    //startActivity(i);
                     return json.getString(TAG_MESSAGE);
                 }else{
                     Log.d("Login Failure!", json.getString(TAG_MESSAGE));
