@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="User"
+        android:id="@+id/btnUser" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="Friends"
+        android:layout_weight="1"
+        android:id="@+id/btnFriends" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="Add Friend"
+        android:layout_weight="1"
+        android:id="@+id/btnAddFriend" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="Setting"
+        android:layout_weight="1"
+        android:id="@+id/btnSetting" />
+</LinearLayout>
