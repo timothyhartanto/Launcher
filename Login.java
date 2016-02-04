@@ -87,6 +87,23 @@ public class Login extends Activity implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        // Restore preferences
+        SharedPreferences sp = getSharedPreferences("loginFile", MODE_PRIVATE);
+        boolean already_logged_in = sp.getBoolean("loggedIn", false);
+
+        if(!already_logged_in){
+            this.finish();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    }
+
     class AttemptLogin extends AsyncTask<String, String, String> {
 
         /**
