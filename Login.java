@@ -158,6 +158,8 @@ public class Login extends Activity implements View.OnClickListener {
                     SharedPreferences.Editor edit = getSharedPreferences("loginFile", MODE_PRIVATE).edit();
                     edit.putBoolean("loggedIn", true);
                     edit.commit();
+                    
+                    //add another saved prefences to save the logins and kepp trying to connect next time it is logged on
 
                     //Intent i = new Intent(Login.this, MultiFragment.class);
                     finish();
