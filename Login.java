@@ -36,7 +36,7 @@ public class Login extends Activity implements View.OnClickListener {
 
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
-    private static final String LOGIN_URL = "http://192.168.131.1:8080/webservice/login.php";
+    private static final String LOGIN_URL = "http://xxx.xxx.xxx.xxx:8080/webservice/login.php";
 
     //JSON element ids from repsonse of php script:
     private static final String TAG_SUCCESS = "success";
